@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vibrate</title>
+
+    <style>
+        #message {
+            text-align: center;
+        }
+        #vibrateBtn {
+            display: block;
+            margin: 0 auto;
+            width: 200px;
+            height: 100px;
+            font-size: 3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 id="message"></h2>
+    <button id="vibrateBtn">Vibrar</button>
+
+    <script>
+        const $message = document.querySelector('#message');
+        const $vibrateBtn = document.querySelector('#vibrateBtn');
+
+        $vibrateBtn.addEventListener('click', vibrate);
+
+        function vibrate() {
+            $message.textContent = "Tentando vibrar...";
+
+
+            let successBool = window.navigator.vibrate(200); // vibra por 200 milisegundos
+            if (successBool) {
+                $message.textContent = "Viu como é fácil fazer um dispositivo vibrar?";
+            } else {
+                $message.textContent = "Ops... algo deu errado ao tentar fazer o dispositivo vibrar.";
+            }
+        }
+    </script>
+</body>
+
+</html>
